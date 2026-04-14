@@ -1,0 +1,11 @@
+<h1>Recipes</h1>
+<p>Daftar resep.</p>
+<script src="../Js/integrasi_api.js"></script>
+<script>
+async function loadRecipes() {
+  const response = await fetch(`${baseUrl}?action=getRecipes`);
+  const result = await response.json();
+  console.log(result);
+}
+loadRecipes();
+</script>

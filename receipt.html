@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Struk POS</title>
+  <link rel="stylesheet" href="../Css/receipt.css">
+</head>
+<body>
+  <div class="receipt">
+    <!-- Header -->
+    <div class="header">
+      <img src="../Logo/containe.png" alt="Logo Usaha" width="150" height="150">
+      <div class="line"></div>
+      <p class="address">
+        Jl. M. Jamil Lubis<br>
+        Tlp 021 - 76XX XXX
+      </p>
+    </div>
+
+    <div class="line"></div>
+
+    <!-- Info transaksi -->
+    <div class="info">
+      <p>Tanggal: 22-10-2020</p>
+      <p>Jam: 13:20</p>
+      <p>Transaksi: TRX-00</p>
+      <p>Pesanan: No 01</p>
+    </div>
+
+    <div class="line"></div>
+
+    <!-- Detail pesanan -->
+    <div class="items">
+      <p>Vanilla Latte</p>
+      <p>1 x Rp 20.000 <span class="right">Rp 20.000</span></p>
+    </div>
+
+    <div class="line"></div>
+
+    <!-- Ringkasan -->
+    <div class="summary">
+      <p>Subtotal <span class="right">Rp 20.000</span></p>
+      <p>Service Charge (5%) <span class="right">Rp 1.000</span></p>
+      <p>Pajak (5%) <span class="right">Rp 1.000</span></p>
+    </div>
+
+    <div class="line"></div>
+
+    <!-- Total -->
+    <div class="total">
+      <strong>
+      <p>Total <span class="right">Rp 22.000</span></p>
+      <p>Tunai <span class="right">Rp 25.000</span></p>
+      <p>Kembalian <span class="right">Rp 3.000</span></p>
+      </strong>
+    </div>
+
+    <div class="line"></div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <p><strong>---- Terima kasih ----</strong></p>
+      <p><strong>kunjungan anda di POST Cafe</strong></p>
+    </div>
+  </div>
+
+  <script>
+    window.onload = () => window.print();
+  </script>
+</body>
+</html>

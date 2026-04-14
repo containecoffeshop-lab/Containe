@@ -1,0 +1,490 @@
+
+body {
+  background-color: rgba(211, 211, 211, 0.96);
+}
+h1 {
+  display:flex;
+  justify-content: center;
+  border-radius: 20px;
+  margin: 0;                /* hilangkan margin default */
+  padding: 20px 0;          /* beri jarak atas-bawah */
+  text-align: center;       /* teks ketengah horizontal */
+  font-size: 2.5em;         /* ukuran lebih besar */
+  font-weight: bold;
+  color: #f4f4f4;              /* warna teks */
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  background-color:#2c3e50;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+  
+}
+  main {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border-radius: 20px;
+    margin: 0;
+    padding: 0;
+    min-height: 50vh;              /* penuh layar */
+    display: flex;                  /* gunakan flexbox */
+    justify-content: center;        /* center horizontal */
+    align-items: center;            /* center vertical */
+    background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
+    cursor: pointer;
+    animation: both 0.3s ease;
+}
+h2 {
+  color: #fff;
+}
+
+strong {
+  color: #59ff7a;
+  font-size: 18px;
+  font-style: bold;
+  text-align: left;
+}
+label {
+  color: #ffffff;
+  font-size: 14px;
+  font-style: bold;
+  text-align: left;
+}
+p1 {
+  color: #ffffff;
+  font-size: 14px;
+  font-style: bold;
+  text-align: left;
+  lighting-color: #00c6ff;
+}
+h4 {
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 12px;
+  color: #ffffff;
+  font-size: 16px;
+  font-style: bold;
+}
+.order-summary {
+    border: groove;
+    background: rgb(43 39 39 / 69%);
+    padding: 24px;
+    border-radius: 19px;
+    margin-bottom: auto;
+    color: #fff;
+    animation: fadeIn 0.5s ease;
+    text-align: left;
+}
+.transactions-container {
+  display: flex;
+  justify-content: center; /* horizontal center */
+  align-items: center;     /* vertical center */
+  flex-wrap: wrap;
+  gap: 20px;
+  min-height: 100vh;       /* supaya bisa center vertikal */
+}
+
+
+.glass-card {
+  backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  animation: fadeIn 0.3s ease;
+  font-weight: bold;
+  text-align: center;
+  width: 220px;            /* ukuran konsisten */
+}
+
+.glass-card:hover {
+  transform: scale(1.05);
+  background: rgba(255,255,255,0.25);
+}
+
+/* Popup content */
+.popup-content {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-style: bold;
+  font-weight: bold;
+  font-size: large;
+  text-shadow: #1f1f1f;
+  background: rgba(255,255,255,0.9);
+  backdrop-filter: blur(20px);
+  border-radius: 12px;
+  padding: 20px;
+  width: 50%;
+  max-height: 50%;
+  overflow-y: auto;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.736);
+  animation: popupFadeIn 0.3s ease;
+  position: relative;
+  display: flex;
+  gap: 20px;
+}
+
+/* Panel kiri & kanan */
+.left-panel { flex: 5; }
+.right-panel {
+  flex: 5;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: rgba(255,255,255,0.25);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  padding: 20px;
+  min-height: 100%;
+  text-align: center;
+}
+
+/* Grid menu dalam popup */
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+
+/* Card menu */
+.menu-card {
+  background: rgba(241, 241, 241, 0.845);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  box-shadow: 0 4px 12px rgba(205, 198, 198, 0.715);
+  opacity: 0;
+  transform: scale(0.95);
+  animation: fadeInCard 0.3s forwards;
+  transform: scaleX(1.05);
+}
+.menu-card:hover {
+  transform: scale(1.05);
+  background: rgba(201, 196, 196, 0.656);
+}
+
+/* Animasi popup */
+@keyframes popupFadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Animasi card */
+@keyframes fadeInCard {
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Grup opsi */
+.option-group {
+  margin: 12px 0;
+}
+.option-group label {
+  font-weight: bold;
+  margin-right: 8px;
+}
+.option-group select,
+.option-group input[type=number] {
+  padding: 6px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  min-width: 100px;
+}
+
+/* Checkbox topping */
+#toppingOptions label {
+  display: block;
+  margin: 4px 0;
+  cursor: pointer;
+}
+
+/* Tombol Order */
+.order-btn {
+  margin-top: 20px;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 10px;
+  background:linear-gradient(135deg, #00c6ff, #0072ff);
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  backdrop-filter: blur(12px);
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+.order-btn:hover {
+  background: #45a049;
+  transform: scale(1.05);
+}
+
+/* Total harga */
+#totalPrice {
+margin-top: 20px; 
+ font-weight: bold;
+  color: #ffffff;
+  font-size: 20px;
+  text-underline-offset: 4px;
+}
+/* Overlay */
+.popup-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(255, 255, 255, 0.75);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  animation: fadeIn 0.4s ease forwards;
+}
+
+/* Konten popup lebih lebar */
+.popup-content {
+  background: rgb(44 62 80);
+  backdrop-filter: blur(100px);
+  border-radius: 20px;
+  padding: 40px;
+  width: 85%;              /* Lebar fit layar */
+  max-width: 1200px;       /* Batas 80maksimal */
+  max-height: 85vh;
+  overflow-y: auto;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+  transform: translateY(40px);
+  animation: slideUp 0.5s ease forwards;
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  position: relative;
+  scrollbar-color: rgb(255, 255, 255) transparent; /* Warna scrollbar */
+  scroll-padding: 20px;
+  scrollbar-width: 20px;
+  scroll-snap-stop: always;
+  scroll-behavior: smooth;
+  scrollbar-shadow-color: #000000;
+
+}
+
+/* Panel kiri & kanan */
+.left-panel {
+  flex: 1;
+  border-right: 1px solid rgba(255,255,255,0.2);
+  padding-right: 25px;
+}
+.right-panel {
+  flex: 1;
+  flex-direction: column;
+  padding-left: 1px solid rgba(255,255,255,0.2);
+  padding: 20px;
+  height: 100%;
+
+}
+
+/* Tombol close */
+.close-btn {
+  position: absolute;
+  top: 20px; right: 15px;
+  font-size: 35px;
+  cursor: pointer;
+  color: #fff;
+  transition: transform 0.3s ease;
+}
+.close-btn:hover {
+  transform: rotate(180deg);
+}
+
+/* Tombol order */
+.order-btn {
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+  border: none;
+  color: #fff;
+  padding: 16px 26px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 18px;
+  margin-top: 20px;
+  transition: all 0.3s ease;
+}
+.order-btn:hover {
+  background: linear-gradient(135deg, #0072ff, #00c6ff);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+}
+
+/* Option group */
+.option-group {
+  margin: 18px 0;
+}
+.option-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 6px;
+  color: #fff;
+}
+.option-group input, .option-group select {
+  display: list-item;
+  width: flex;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  outline: none;
+  background: rgba(3, 3, 3, 0.25);
+  color: #fff;
+  transition: background 0.3s ease;
+
+}
+.option-group input:focus, .option-group select:focus {
+  background: rgba(0 12px 40px rgb(255 255 255 / 40%));
+}
+
+/* Ringkasan order */
+#orderSummary, #orderDetail {
+  flex: 1;
+  background: rgba(255,255,255,0.15);
+  padding: 18px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  color: #fff;
+  animation: fadeIn 0.5s ease;
+  text-align: left;
+}
+
+/* Animasi */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes slideUp {
+  from { transform: translateY(40px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Grid topping */
+.topping-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 kolom */
+  gap: 12px;
+}
+
+.topping-card {
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  padding: 14px;
+  text-align: center;
+  cursor: pointer;
+  color: #fff;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.topping-card:hover {
+  background: rgba(255,255,255,0.25);
+  transform: translateY(-3px);
+}
+
+.topping-card.active {
+
+  background: linear-gradient(10deg, #274661, #000000); 
+  color: rgba(6, 201, 255, 0.3);
+  font-weight: bold;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  animation: bounce 0.4s ease;
+}
+
+/* Animasi bounce */
+@keyframes bounce {
+  0%   { transform: scale(0.9); }
+  50%  { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+.payment-grid {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.pay-option {
+  flex: 1;
+  padding: 12px;
+  text-align: center;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+}
+
+.pay-option:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 6px 25px rgba(0,0,0,0.3);
+}
+
+.pay-option.active {
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+  color: #fff;
+  box-shadow: 0 6px 30px rgba(0,114,255,0.5);
+}
+
+.split-section {
+  margin-top: 20px;
+}
+
+.split-btn {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  background: rgba(40, 167, 69, 0.2);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+}
+
+.split-btn:hover {
+  background: rgba(40, 167, 69, 0.4);
+  transform: scale(1.03);
+  box-shadow: 0 6px 25px rgba(40,167,69,0.4);
+}
+/* Overlay blur */
+.popup-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  backdrop-filter: blur(8px);
+}
+
+/* Konten QRIS */
+.qris-content {
+  background: rgba(255,255,255,0.9);
+  backdrop-filter: blur(20px);
+  border-radius: 16px;
+  padding: 30px;
+  width: 400px;
+  text-align: center;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+  animation: popupFadeIn 0.4s ease;
+}
+
+.qris-barcode img {
+  width: 250px;
+  height: 250px;
+  margin: 20px 0;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+.qris-barcode p {
+  color: #333;
+  font-weight: bold;
+}

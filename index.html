@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Coffee Shop POS</title>
+  <link rel="stylesheet" href="../Css/style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="logo">
+      <img src="../Logo/containe.png" alt="Logo">
+    </div>
+
+    <div class="card glass">
+      <h2>Login</h2>
+      <input type="text" id="username" placeholder="Username" autocomplete="username">
+      <input type="password" id="pin" placeholder="PIN" autocomplete="current-password">
+      <button id="loginBtn">Login</button>
+      <p id="loginResult"></p>
+    </div>
+
+    <div id="menu" class="card glass hidden">
+      <h2>Menu</h2>
+      <ul id="menuList"></ul>
+    </div>
+  </div>
+
+  <script src="../Js/integrasi_api.js"></script>
+</body>
+</html>

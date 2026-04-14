@@ -1,0 +1,11 @@
+<h1>Users</h1>
+<p>Daftar pengguna.</p>
+<script src="..//Js/integrasi_api.js"></script>
+<script>
+async function loadUsers() {
+  const response = await fetch(`${baseUrl}?action=getUsers`);
+  const result = await response.json();
+  console.log(result);
+}
+loadUsers();
+</script>

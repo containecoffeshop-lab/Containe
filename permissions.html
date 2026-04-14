@@ -1,0 +1,11 @@
+<h1>Permissions</h1>
+<p>Daftar hak akses.</p>
+<script src="../Js/integrasi_api.js"></script>
+<script>
+async function loadPermissions() {
+  const response = await fetch(`${baseUrl}?action=getPermissions`);
+  const result = await response.json();
+  console.log(result);
+}
+loadPermissions();
+</script>

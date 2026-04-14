@@ -1,0 +1,11 @@
+<h1>Roles</h1>
+<p>Daftar role.</p>
+<script src="../Js/integrasi_api.js"></script>
+<script>
+async function loadRoles() {
+  const response = await fetch(`${baseUrl}?action=getRoles`);
+  const result = await response.json();
+  console.log(result);
+}
+loadRoles();
+</script>

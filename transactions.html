@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Transactions</title>
+  <link rel="stylesheet" href="../Css/transactions.css" />
+</head>
+<body>
+  <header>
+    <h1>Transactions</h1>
+  </header>
+
+  <!-- Kategori -->
+  <main>
+    <section class="grid" aria-label="Kategori menu">
+      <div class="glass-card" data-category="MC01">Coffee Series</div>
+      <div class="glass-card" data-category="MC02">Non Coffee Series</div>
+      <div class="glass-card" data-category="MC03">Signature Series</div>
+      <div class="glass-card" data-category="MC04">Tea Series</div>
+      <div class="glass-card" data-category="MC05">Snack</div>
+    </section>
+  </main>
+
+  <!-- Popup transaksi -->
+  <div id="menupopup" class="popup-overlay" style="display:none;" role="dialog" aria-modal="true" aria-labelledby="popupTitle">
+    <div class="popup-content">
+      <span id="closePopup" class="close-btn" role="button" aria-label="Tutup">&times;</span>
+
+      <div class="left-panel" aria-hidden="false">
+        <h2 id="popupTitle"></h2>
+        <div id="popupMenuList" class="menu-grid" aria-live="polite"></div>
+      </div>
+
+      <aside class="right-panel">
+        <h3>Detail Order</h3>
+        <div id="orderDetail" aria-live="polite"></div>
+
+        <div class="option-group">
+          <label for="sizeSelect">Size:</label>
+          <select id="sizeSelect" name="sizeSelect"></select>
+        </div>
+
+        <div class="option-group">
+          <label for="typeSelect">Type:</label>
+          <select id="typeSelect" name="typeSelect"></select>
+        </div>
+
+        <div class="option-group">
+          <label>Topping:</label>
+          <div id="toppingGrid" class="topping-grid" role="list"></div>
+        </div>
+
+        <div class="option-group">
+          <label for="quantityInput">Jumlah:</label>
+          <input type="number" id="quantityInput" value="1" min="1" />
+        </div>
+
+        <div id="totalPrice" aria-live="polite">Rp 0</div>
+
+        <button id="submitOrder" class="order-btn" type="button">Order</button>
+      </aside>
+    </div>
+  </div>
+
+  <!-- Popup verifikasi order -->
+<div id="verificationPopup" class="popup-overlay" style="display:none;" role="dialog" aria-modal="true" aria-labelledby="verificationTitle">
+  <div class="popup-content">
+    <span id="closeVerification" class="close-btn" role="button" aria-label="Tutup">&times;</span>
+    <h2 id="verificationTitle">Verifikasi Order</h2>
+
+    <!-- Ringkasan order -->
+    <section id="orderSummary" aria-live="polite"></section>
+
+    <!-- Nama pelanggan -->
+    <div class="option-group">
+      <label for="customerName">Nama Pelanggan:</label>
+      <input type="text" id="customerName" placeholder="Masukkan nama pelanggan" />
+     <!-- Input nominal bayar -->
+    <div class="option-group">
+      <label for="paymentInput">Bayar:</label>
+      <input type="number" id="paymentInput" placeholder="Nominal pembayaran" />
+    </div>
+    </div>
+
+    <!-- Grid metode pembayaran -->
+    <div class="payment-section">
+      <h4>Pilih Metode Pembayaran:</h4>
+      <div class="payment-grid">
+        <div class="pay-option" data-method="cash">Tunai</div>
+        <div class="pay-option" data-method="qris">QRIS</div>
+        <div class="pay-option" data-method="debt">Nanti (Hutang)</div>
+        <div class="split-section">
+          </div>
+      <button id="splitBillBtn" class="split-btn">Split Bill</button>
+    </div>
+      </div>
+    <!-- Kembalian -->
+    <div id="changeDisplay"><p1>Kembalian: Rp 0</p1></div>
+
+    <!-- Finalisasi -->
+    <button id="finalizeOrder" class="order-btn" type="button">Selesaikan Order & Cetak Struk</button>
+  </div>
+</div>
+  <!-- Elemen tambahan yang dipakai integrasi_api.js (opsional di halaman lain) -->
+  <!-- Jika tidak diperlukan di halaman ini, biarkan kosong atau hapus -->
+  <div style="display:none;">
+    <input id="username" />
+    <input id="pin" />
+    <div id="loginResult"></div>
+
+    <button id="loginBtn" type="button">Login (debug)</button>
+    <button id="transBtn" type="button">Create Transaction (debug)</button>
+    <button id="stockBtn" type="button">Update Stock (debug)</button>
+
+    <input id="itemId" />
+    <input id="newStock" />
+    <div id="stockResult"></div>
+    <div id="transResult"></div>
+
+    <ul id="menuList"></ul>
+  </div>
+
+  <!-- Popup QRIS -->
+<div id="qrisPopup" class="popup-overlay" style="display:none;" role="dialog" aria-modal="true" aria-labelledby="qrisTitle">
+  <div class="popup-content qris-content">
+    <span id="closeQris" class="close-btn" role="button" aria-label="Tutup">&times;</span>
+    <h2 id="qrisTitle">Pembayaran QRIS</h2>
+    
+    <!-- Barcode dummy -->
+    <div class="qris-barcode">
+      <img src="https://play-lh.googleusercontent.com/dtM5BMrxGa9n-QxjWrfSGZ0qAzewTI7EXLioZ4fxsb9Ln8X7IjymFqYGgZaQwQ3kaZc=w240-h480-rw" alt="QRIS Barcode" />
+      <p>Scan barcode untuk membayar</p>
+    </div>
+
+    <button id="qrisDone" class="order-btn">Selesai & Cetak Struk</button>
+  </div>
+</div>
+
+  <!-- Panggil JS eksternal (urutan penting) -->
+  <script src="../Js/integrasi_api.js" defer></script>
+  <script src="../Js/transaction.js" defer></script>
+  <script src="../Js/qris.js" defer></script>
+</body>
+</html>

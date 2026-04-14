@@ -1,0 +1,11 @@
+<h1>Stock Movements</h1>
+<p>Daftar pergerakan stok akan tampil di sini.</p>
+<script src="../Js/integrasi_api.js"></script>
+<script>
+async function loadStock() {
+  const response = await fetch(`${baseUrl}?action=getStockMovements`);
+  const result = await response.json();
+  console.log(result);
+}
+loadStock();
+</script>
